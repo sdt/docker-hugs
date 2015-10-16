@@ -18,6 +18,8 @@ Issues: https://github.com/sdt/docker-hugs/issues
 
 ## Usage
 
+You can run hugs from docker directly with:
+
 `docker run --rm -ti -v "$PWD":/hugs sdthirlwall/hugs [args...]`
 
 I have a bash function like this:
@@ -28,4 +30,8 @@ hugs() {
 }
 ```
 
-and then just use *hugs* as if it were a native command.
+and then just use **hugs** as if it were a native command.
+
+```
+hugs myfile.hs
+```
