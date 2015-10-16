@@ -1,29 +1,26 @@
 #!/bin/bash
 
-IMAGE_NAME=sdt4docker/hugs
-CONTAINER_NAME=hugs
+IMAGE=sdthirlwall/hugs
 
 case $1 in
 
     build)
-        docker build -t $IMAGE_NAME .
+        docker build -t $IMAGE .
         ;;
 
     run)
         shift
-        docker run --rm -v $PWD:/hugs -ti --name $CONTAINER_NAME \
-                   $IMAGE_NAME "$@"
+        docker run --rm -v $PWD:/hugs -ti $IMAGE "$@"
         ;;
 
-    pull)
-        docker pull $IMAGE_NAME
+    push)
+        docker push $IMAGE
         ;;
 
     *)
-        echo "usage: $0 [build|run|make]"
+        echo "usage: $0 [build|run|push]"
         exit 1
 
         ;;
 
 esac
-
