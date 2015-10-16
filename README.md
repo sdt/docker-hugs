@@ -22,16 +22,11 @@ You can run hugs from docker directly with:
 
 `docker run --rm -ti -v "$PWD":/hugs sdthirlwall/hugs [args...]`
 
-I have a bash function like this:
+Or grab the [hugs launcher script](https://github.com/sdt/docker-hugs/blob/master/hugs) from the github repo and then use **hugs** as if it was a native command.
 
-```bash
-hugs() {
-    docker run --rm -ti -v "$PWD":/hugs sdthirlwall/hugs "$@"
-}
-```
-
-and then just use **hugs** as if it were a native command.
-
+eg
 ```
 hugs myfile.hs
 ```
+
+The current working directory gets mounted inside the container, so you can edit the code in your favourite editor, and `:reload` from within hugs.
