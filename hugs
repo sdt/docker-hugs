@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Use this script in the same way you'd run hugs natively.
+
+# Set HUGS_IMAGE to use a custom image.
+: ${HUGS_IMAGE:=sdthirlwall/hugs}
+
+docker run --interactive --rm --tty --volume "$PWD":/hugs "$HUGS_IMAGE" "$@"
